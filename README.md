@@ -1,4 +1,4 @@
 TortoiseBugNET
 ==============
 
-NugNET issue tracker plugin for TortoiseSVN
+BugNET issue tracker plugin for TortoiseSVN
