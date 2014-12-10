@@ -1,5 +1,0 @@
-C:\work\Projects\Visual Studio 2012\TortoisePlugins\Interop.BugTraqProvider\bin\Release\Interop.BugTraqProvider.dll
-C:\work\Projects\Visual Studio 2012\TortoisePlugins\Interop.BugTraqProvider\bin\Release\Interop.BugTraqProvider.pdb
-C:\work\Projects\Visual Studio 2012\TortoisePlugins\Interop.BugTraqProvider\obj\Release\Interop.BugTraqProvider.dll
-C:\work\Projects\Visual Studio 2012\TortoisePlugins\Interop.BugTraqProvider\obj\Release\Interop.BugTraqProvider.pdb
-C:\work\Projects\Visual Studio 2012\TortoisePlugins\Interop.BugTraqProvider\obj\Release\Interop.BugTraqProvider.csprojResolveAssemblyReference.cache
