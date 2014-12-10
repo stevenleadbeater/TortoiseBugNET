@@ -1,0 +1,5 @@
+C:\work\Projects\Visual Studio 2012\TortoisePlugins\Interop.BugTraqProvider\bin\Debug\Interop.BugTraqProvider.dll
+C:\work\Projects\Visual Studio 2012\TortoisePlugins\Interop.BugTraqProvider\bin\Debug\Interop.BugTraqProvider.pdb
+C:\work\Projects\Visual Studio 2012\TortoisePlugins\Interop.BugTraqProvider\obj\Debug\Interop.BugTraqProvider.csprojResolveAssemblyReference.cache
+C:\work\Projects\Visual Studio 2012\TortoisePlugins\Interop.BugTraqProvider\obj\Debug\Interop.BugTraqProvider.dll
+C:\work\Projects\Visual Studio 2012\TortoisePlugins\Interop.BugTraqProvider\obj\Debug\Interop.BugTraqProvider.pdb
