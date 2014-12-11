@@ -54,6 +54,8 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -85,6 +87,11 @@
       <DependentUpon>OptionsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\BugNET\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="TicketItem.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -99,18 +106,46 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="bin\Debug\TortoiseBugNet.snk" />
     <None Include="ExampleCsPlugin.reg" />
+    <None Include="Service References\BugNET\BugNetServices.wsdl" />
+    <None Include="Service References\BugNET\ExampleCsPlugin.BugNET.ArrayOfAnyType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BugNET\ExampleCsPlugin.BugNET.ArrayOfString.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BugNET\ExampleCsPlugin.BugNET.Issue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="TortoisesvnBugNET.pfx" />
     <None Include="TortoiseSVNBugNET.snk" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BugNET\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BugNET\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BugNET\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BugNET\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>cd C:\Windows\Microsoft.NET\Framework64\v2.0.50727
-regasm.exe "C:\work\Projects\Visual Studio 2012\TortoisePlugins\TortoiseBugNET\bin\Debug\ExampleCsPlugin.dll" /codebase</PostBuildEvent>
+regasm.exe "J:\Work\Projects\Visual Studio 2013\TortoiseBugNET\trunk\TortoisePlugins\TortoiseBugNET\bin\Debug\ExampleCsPlugin.dll" /codebase</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

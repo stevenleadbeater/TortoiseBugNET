@@ -39,14 +39,29 @@ namespace ExampleCsPlugin
             try
             {
                 List<TicketItem> tickets = new List<TicketItem>( );
-                tickets.Add( new TicketItem( 12, "Service doesn't start on Windows Vista" ) );
-                tickets.Add( new TicketItem( 19, "About box doesn't render correctly in large fonts mode" ) );
+                
+                System.ServiceModel.BasicHttpBinding binding = new System.ServiceModel.BasicHttpBinding();
+                binding.Name = "BugNetServicesSoap";
 
-                /*
-                                tickets.Add(new TicketItem(88, commonRoot));
-                                foreach (string path in pathList)
-                                    tickets.Add(new TicketItem(99, path));
-                 */
+                string endpointStr = "http://www.wlblearning.co.uk/BugNet/WebServices/BugNetServices.asmx";
+                var endpoint = new System.ServiceModel.EndpointAddress(endpointStr);
+                
+                BugNET.BugNetServicesSoapClient client = new BugNET.BugNetServicesSoapClient(binding, endpoint);
+                
+
+                client.Open();
+                if (!client.LogIn("steve", "gh13bn97!"))
+                {
+                    throw new Exception("login failed");
+                }
+
+                List<BugNET.Issue> issues = client.GetProjectIssueList(2, "");
+
+                foreach (BugNET.Issue issue in issues)
+                {
+                    tickets.Add(new TicketItem(issue.Id, issue.Title));
+                }
+
                 revPropNames = new string[2];
                 revPropValues = new string[2];
                 revPropNames[0] = "bugtraq:issueIDs";
