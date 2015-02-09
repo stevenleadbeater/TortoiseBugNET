@@ -131,6 +131,9 @@
     <WCFMetadataStorage Include="Service References\BugNET\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\BugNET\BugNetServices.disco" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Service References\BugNET\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>

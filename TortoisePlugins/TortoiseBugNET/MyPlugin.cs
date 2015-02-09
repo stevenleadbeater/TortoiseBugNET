@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
@@ -38,8 +39,6 @@ namespace ExampleCsPlugin
         {
             try
             {
-                List<TicketItem> tickets = new List<TicketItem>( );
-                
                 System.ServiceModel.BasicHttpBinding binding = new System.ServiceModel.BasicHttpBinding();
                 binding.Name = "BugNetServicesSoap";
 
@@ -50,17 +49,14 @@ namespace ExampleCsPlugin
                 
 
                 client.Open();
-                if (!client.LogIn("steve", "gh13bn97!"))
+                if (!client.LogIn("steve", ""))
                 {
                     throw new Exception("login failed");
                 }
 
-                List<BugNET.Issue> issues = client.GetProjectIssueList(2, "");
+                List<BugNET.Issue> issues = client.GetProjectIssueList(3, "");
 
-                foreach (BugNET.Issue issue in issues)
-                {
-                    tickets.Add(new TicketItem(issue.Id, issue.Title));
-                }
+                var tickets = issues.Select(issue => new TicketItem(issue.Id, issue.Title)).ToList();
 
                 revPropNames = new string[2];
                 revPropValues = new string[2];
