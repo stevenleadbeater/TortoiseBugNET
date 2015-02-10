@@ -42,7 +42,7 @@ namespace ExampleCsPlugin
                 System.ServiceModel.BasicHttpBinding binding = new System.ServiceModel.BasicHttpBinding();
                 binding.Name = "BugNetServicesSoap";
 
-                string endpointStr = "http://www.wlblearning.co.uk/BugNet/WebServices/BugNetServices.asmx";
+                string endpointStr = "http://www.ledsys.co.uk/BugNet/WebServices/BugNetServices.asmx";
                 var endpoint = new System.ServiceModel.EndpointAddress(endpointStr);
                 
                 BugNET.BugNetServicesSoapClient client = new BugNET.BugNetServicesSoapClient(binding, endpoint);
