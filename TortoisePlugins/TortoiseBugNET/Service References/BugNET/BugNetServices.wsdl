@@ -230,105 +230,74 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
         </s:sequence>
       </s:complexType>
-      <s:element name="GetProjectIssueList">
+      <s:element name="GetStatusObjects">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="ProjectId" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="Filter" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="projectId" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Issue">
+      <s:complexType name="Status">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="IssueCustomFields" type="tns:ArrayOfIssueCustomField" />
-          <s:element minOccurs="1" maxOccurs="1" name="IsClosed" type="s:boolean" />
-          <s:element minOccurs="1" maxOccurs="1" name="SendNewAssigneeNotification" type="s:boolean" />
-          <s:element minOccurs="1" maxOccurs="1" name="NewAssignee" type="s:boolean" />
-          <s:element minOccurs="1" maxOccurs="1" name="Progress" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Votes" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Disabled" type="s:boolean" />
-          <s:element minOccurs="1" maxOccurs="1" name="Estimation" type="s:decimal" />
-          <s:element minOccurs="1" maxOccurs="1" name="TimeLogged" type="s:double" />
-          <s:element minOccurs="0" maxOccurs="1" name="AssignedDisplayName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="AssignedUserName" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Visibility" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="CategoryId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="CategoryName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="CreatorDisplayName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="CreatorUserName" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="CreatorUserId" type="s1:guid" />
-          <s:element minOccurs="0" maxOccurs="1" name="OwnerUserName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="OwnerDisplayName" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="OwnerUserId" type="s1:guid" />
-          <s:element minOccurs="1" maxOccurs="1" name="AssignedUserId" type="s1:guid" />
-          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="LastUpdate" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="DueDate" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="LastUpdateDisplayName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="LastUpdateUserName" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="MilestoneId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="MilestoneName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="MilestoneImageUrl" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="AffectedMilestoneId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="AffectedMilestoneName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="AffectedMilestoneImageUrl" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="MilestoneDueDate" nillable="true" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="IssueTypeId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="IssueTypeName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="IssueTypeImageUrl" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="ResolutionId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="ResolutionName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ResolutionImageUrl" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="PriorityId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="PriorityName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="PriorityImageUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsClosedState" type="s:boolean" />
           <s:element minOccurs="1" maxOccurs="1" name="ProjectId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ProjectCode" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="StatusId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="StatusName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="StatusImageUrl" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SortOrder" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Status" nillable="true" type="tns:Status" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStatusObjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusObjectsResult" type="tns:ArrayOfStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProjects">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="Project">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowIssueVoting" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ManagerId" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatorUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatorDisplayName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Disabled" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManagerUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManagerDisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UploadPath" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccessType" type="tns:ProjectAccessType" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowAttachments" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SvnRepositoryUrl" type="s:string" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="ArrayOfIssueCustomField">
+      <s:simpleType name="ProjectAccessType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Public" />
+          <s:enumeration value="Private" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfProject">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="IssueCustomField" nillable="true" type="tns:IssueCustomField" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Project" nillable="true" type="tns:Project" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="IssueCustomField">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="FieldName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="FieldValue" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="DatabaseFieldName" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfIssue">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Issue" nillable="true" type="tns:Issue" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="GetProjectIssueListResponse">
+      <s:element name="GetProjectsResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetProjectIssueListResult" type="tns:ArrayOfIssue" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="saveProjectIssue">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="ProjectId" type="s:int" />
-            <s:element minOccurs="0" maxOccurs="1" name="issue" type="tns:Issue" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="saveProjectIssueResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="saveProjectIssueResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetProjectsResult" type="tns:ArrayOfProject" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -452,17 +421,17 @@
   <wsdl:message name="GetProjectIssuesSoapOut">
     <wsdl:part name="parameters" element="tns:GetProjectIssuesResponse" />
   </wsdl:message>
-  <wsdl:message name="GetProjectIssueListSoapIn">
-    <wsdl:part name="parameters" element="tns:GetProjectIssueList" />
+  <wsdl:message name="GetStatusObjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatusObjects" />
   </wsdl:message>
-  <wsdl:message name="GetProjectIssueListSoapOut">
-    <wsdl:part name="parameters" element="tns:GetProjectIssueListResponse" />
+  <wsdl:message name="GetStatusObjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusObjectsResponse" />
   </wsdl:message>
-  <wsdl:message name="saveProjectIssueSoapIn">
-    <wsdl:part name="parameters" element="tns:saveProjectIssue" />
+  <wsdl:message name="GetProjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProjects" />
   </wsdl:message>
-  <wsdl:message name="saveProjectIssueSoapOut">
-    <wsdl:part name="parameters" element="tns:saveProjectIssueResponse" />
+  <wsdl:message name="GetProjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectsResponse" />
   </wsdl:message>
   <wsdl:message name="LogInSoapIn">
     <wsdl:part name="parameters" element="tns:LogIn" />
@@ -537,13 +506,13 @@
       <wsdl:input message="tns:GetProjectIssuesSoapIn" />
       <wsdl:output message="tns:GetProjectIssuesSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="GetProjectIssueList">
-      <wsdl:input message="tns:GetProjectIssueListSoapIn" />
-      <wsdl:output message="tns:GetProjectIssueListSoapOut" />
+    <wsdl:operation name="GetStatusObjects">
+      <wsdl:input message="tns:GetStatusObjectsSoapIn" />
+      <wsdl:output message="tns:GetStatusObjectsSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="saveProjectIssue">
-      <wsdl:input message="tns:saveProjectIssueSoapIn" />
-      <wsdl:output message="tns:saveProjectIssueSoapOut" />
+    <wsdl:operation name="GetProjects">
+      <wsdl:input message="tns:GetProjectsSoapIn" />
+      <wsdl:output message="tns:GetProjectsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="LogIn">
       <wsdl:input message="tns:LogInSoapIn" />
@@ -691,8 +660,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetProjectIssueList">
-      <soap:operation soapAction="http://bugnetproject.com/GetProjectIssueList" style="document" />
+    <wsdl:operation name="GetStatusObjects">
+      <soap:operation soapAction="http://bugnetproject.com/GetStatusObjects" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -700,8 +669,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="saveProjectIssue">
-      <soap:operation soapAction="http://bugnetproject.com/saveProjectIssue" style="document" />
+    <wsdl:operation name="GetProjects">
+      <soap:operation soapAction="http://bugnetproject.com/GetProjects" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -865,8 +834,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetProjectIssueList">
-      <soap12:operation soapAction="http://bugnetproject.com/GetProjectIssueList" style="document" />
+    <wsdl:operation name="GetStatusObjects">
+      <soap12:operation soapAction="http://bugnetproject.com/GetStatusObjects" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -874,8 +843,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="saveProjectIssue">
-      <soap12:operation soapAction="http://bugnetproject.com/saveProjectIssue" style="document" />
+    <wsdl:operation name="GetProjects">
+      <soap12:operation soapAction="http://bugnetproject.com/GetProjects" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

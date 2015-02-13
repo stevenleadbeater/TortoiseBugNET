@@ -1,30 +1,30 @@
 REGEDIT4
 
-[HKEY_CLASSES_ROOT\ExampleCsPlugin.MyPlugin]
-@="ExampleCsPlugin.MyPlugin"
+[HKEY_CLASSES_ROOT\TurtleBugNET.TurtleBugNetPlugin]
+@="TurtleBugNET.TurtleBugNetPlugin"
 
-[HKEY_CLASSES_ROOT\ExampleCsPlugin.MyPlugin\CLSID]
+[HKEY_CLASSES_ROOT\TurtleBugNET.TurtleBugNetPlugin\CLSID]
 @="{18B7CD4C-C2DD-404B-BCD7-8B904DF3FAEE}"
 
 [HKEY_CLASSES_ROOT\CLSID\{18B7CD4C-C2DD-404B-BCD7-8B904DF3FAEE}]
-@="ExampleCsPlugin.MyPlugin"
+@="TurtleBugNET.TurtleBugNetPlugin"
 
 [HKEY_CLASSES_ROOT\CLSID\{18B7CD4C-C2DD-404B-BCD7-8B904DF3FAEE}\InprocServer32]
 @="mscoree.dll"
 "ThreadingModel"="Both"
-"Class"="ExampleCsPlugin.MyPlugin"
-"Assembly"="ExampleCsPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+"Class"="TurtleBugNET.TurtleBugNetPlugin"
+"Assembly"="TurtleBugNET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
 "RuntimeVersion"="v2.0.50727"
-"CodeBase"="file:///C:/work/Projects/Visual Studio 2012/TortoisePlugins/TortoiseBugNET/bin/Debug/ExampleCsPlugin.dll"
+"CodeBase"="file:///C:/Work/Projects/TortoiseBugNET/trunk/TortoisePlugins/TortoiseBugNET/bin/Debug/TurtleBugNET.dll"
 
 [HKEY_CLASSES_ROOT\CLSID\{18B7CD4C-C2DD-404B-BCD7-8B904DF3FAEE}\InprocServer32\1.0.0.0]
-"Class"="ExampleCsPlugin.MyPlugin"
-"Assembly"="ExampleCsPlugin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+"Class"="TurtleBugNET.TurtleBugNetPlugin"
+"Assembly"="TurtleBugNET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
 "RuntimeVersion"="v2.0.50727"
-"CodeBase"="file:///C:/work/Projects/Visual Studio 2012/TortoisePlugins/TortoiseBugNET/bin/Debug/ExampleCsPlugin.dll"
+"CodeBase"="file:///C:/Work/Projects/TortoiseBugNET/trunk/TortoisePlugins/TortoiseBugNET/bin/Debug/TurtleBugNET.dll"
 
 [HKEY_CLASSES_ROOT\CLSID\{18B7CD4C-C2DD-404B-BCD7-8B904DF3FAEE}\ProgId]
-@="ExampleCsPlugin.MyPlugin"
+@="TurtleBugNET.TurtleBugNetPlugin"
 
 [HKEY_CLASSES_ROOT\CLSID\{18B7CD4C-C2DD-404B-BCD7-8B904DF3FAEE}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}]
 

@@ -6,12 +6,12 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 
-namespace ExampleCsPlugin
+namespace TurtleBugNET
 {
     [ComVisible(true),
         Guid("18B7CD4C-C2DD-404B-BCD7-8B904DF3FAEE"),
         ClassInterface(ClassInterfaceType.None)]
-    public class MyPlugin : Interop.BugTraqProvider.IBugTraqProvider2, Interop.BugTraqProvider.IBugTraqProvider
+    public class TurtleBugNetPlugin : Interop.BugTraqProvider.IBugTraqProvider2, Interop.BugTraqProvider.IBugTraqProvider
     {
         private List<TicketItem> selectedTickets = new List<TicketItem>();
 
@@ -54,9 +54,9 @@ namespace ExampleCsPlugin
                     throw new Exception("login failed");
                 }
 
-                List<BugNET.Issue> issues = client.GetProjectIssueList(3, "");
+                //List<BugNET.Issue> issues = client.GetProjectIssueList(3, "");
 
-                var tickets = issues.Select(issue => new TicketItem(issue.Id, issue.Title)).ToList();
+                //var tickets = issues.Select(issue => new TicketItem(issue.Id, issue.Title)).ToList();
 
                 revPropNames = new string[2];
                 revPropValues = new string[2];
@@ -67,23 +67,24 @@ namespace ExampleCsPlugin
 
                 bugIDOut = bugID + "added";
 
-                MyIssuesForm form = new MyIssuesForm( tickets );
-                if ( form.ShowDialog( ) != DialogResult.OK )
-                    return originalMessage;
+                //MyIssuesForm form = new MyIssuesForm( tickets );
+                //if ( form.ShowDialog( ) != DialogResult.OK )
+                //    return originalMessage;
 
-                StringBuilder result = new StringBuilder( originalMessage );
-                if ( originalMessage.Length != 0 && !originalMessage.EndsWith( "\n" ) )
-                    result.AppendLine( );
+                //StringBuilder result = new StringBuilder( originalMessage );
+                //if ( originalMessage.Length != 0 && !originalMessage.EndsWith( "\n" ) )
+                //    result.AppendLine( );
 
-                foreach ( TicketItem ticket in form.TicketsFixed )
-                {
-                    result.AppendFormat( "Fixed #{0}: {1}", ticket.Number, ticket.Summary );
-                    result.AppendLine( );
-                    selectedTickets.Add( ticket );
-                }
+                //foreach ( TicketItem ticket in form.TicketsFixed )
+                //{
+                //    result.AppendFormat( "Fixed #{0}: {1}", ticket.Number, ticket.Summary );
+                //    result.AppendLine( );
+                //    selectedTickets.Add( ticket );
+                //}
 
 
-                return result.ToString( );
+                //return result.ToString( );
+                return "";
             }
             catch ( Exception ex )
             {
@@ -119,8 +120,8 @@ namespace ExampleCsPlugin
             if ( form.ShowDialog( ) != DialogResult.OK )
                 return "";
 
-            string options = form.checkBox1.Checked ? "option1" : "";
-            options += form.checkBox2.Checked ? "option2" : "";
+            string options = form.ComboProject.SelectedValue + ";";
+            options += form.ComboCommitStatus.SelectedValue + ";";
             return options;
         }
 

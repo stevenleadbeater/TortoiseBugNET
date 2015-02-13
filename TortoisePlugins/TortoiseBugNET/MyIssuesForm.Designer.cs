@@ -1,4 +1,4 @@
-﻿namespace ExampleCsPlugin
+﻿namespace TurtleBugNET
 {
     partial class MyIssuesForm
     {

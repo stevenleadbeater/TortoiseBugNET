@@ -1,4 +1,4 @@
-namespace ExampleCsPlugin
+namespace TurtleBugNET
 {
     public class TicketItem
     {
