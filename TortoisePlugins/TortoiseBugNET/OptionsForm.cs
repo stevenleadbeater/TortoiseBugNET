@@ -24,6 +24,12 @@ namespace TurtleBugNET
 
         public ComboBox ComboCommitStatus { get { return comboCommitStatus; } }
 
+        public TextBox TextBugNetUrl { get { return textBugNetUrl; } }
+
+        public TextBox TextUserName { get { return textUserName; } }
+
+        public TextBox TextPassword { get { return textPassword; } }
+
         private void buttonGo_Click(object sender, EventArgs e)
         {
             try
@@ -34,12 +40,12 @@ namespace TurtleBugNET
                 binding.Name = "BugNetServicesSoap";
                 binding.AllowCookies = true;
 
-                string endpointStr = "http://www.ledsys.co.uk/BugNet/WebServices/BugNetServices.asmx";
+                string endpointStr = textBugNetUrl.Text;
                 var endpoint = new System.ServiceModel.EndpointAddress(endpointStr);
 
                 BugNET.BugNetServicesSoapClient client = new BugNET.BugNetServicesSoapClient(binding, endpoint);
                 
-                client.LogIn("steve", "");
+                client.LogIn(textUserName.Text, textPassword.Text);
 
                 comboProject.DisplayMember = "Text";
                 comboProject.ValueMember = "Value";
@@ -74,12 +80,14 @@ namespace TurtleBugNET
                 binding.Name = "BugNetServicesSoap";
                 binding.AllowCookies = true;
 
-                string endpointStr = "http://www.ledsys.co.uk/BugNet/WebServices/BugNetServices.asmx";
+                //http://www.ledsys.co.uk/BugNet/WebServices/BugNetServices.asmx
+
+                string endpointStr = textBugNetUrl.Text;
                 var endpoint = new System.ServiceModel.EndpointAddress(endpointStr);
 
                 BugNET.BugNetServicesSoapClient client = new BugNET.BugNetServicesSoapClient(binding, endpoint);
 
-                client.LogIn("steve", "");
+                client.LogIn(textUserName.Text, textPassword.Text);
 
                 comboCommitStatus.DisplayMember = "Text";
                 comboCommitStatus.ValueMember = "Value";

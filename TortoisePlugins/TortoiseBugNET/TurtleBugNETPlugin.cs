@@ -120,7 +120,10 @@ namespace TurtleBugNET
             if ( form.ShowDialog( ) != DialogResult.OK )
                 return "";
 
-            string options = form.ComboProject.SelectedValue + ";";
+            string options = form.TextBugNetUrl.Text + ";";
+            options += form.TextUserName.Text + ";";
+            options += form.TextPassword.Text + ";";
+            options += form.ComboProject.SelectedValue + ";";
             options += form.ComboCommitStatus.SelectedValue + ";";
             return options;
         }
