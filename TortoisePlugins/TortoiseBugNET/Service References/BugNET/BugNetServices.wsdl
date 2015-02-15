@@ -387,7 +387,7 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="UpdateIssue">
+      <s:element name="UpdateIssueStatus">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="projectId" type="s:int" />
@@ -397,7 +397,19 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="UpdateIssueResponse">
+      <s:element name="UpdateIssueStatusResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReassignIssueToCreator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="projectId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="issueId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReassignIssueToCreatorResponse">
         <s:complexType />
       </s:element>
       <s:element name="LogIn">
@@ -538,11 +550,17 @@
   <wsdl:message name="GetProjectIssuesByProjectIdSoapOut">
     <wsdl:part name="parameters" element="tns:GetProjectIssuesByProjectIdResponse" />
   </wsdl:message>
-  <wsdl:message name="UpdateIssueSoapIn">
-    <wsdl:part name="parameters" element="tns:UpdateIssue" />
+  <wsdl:message name="UpdateIssueStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateIssueStatus" />
   </wsdl:message>
-  <wsdl:message name="UpdateIssueSoapOut">
-    <wsdl:part name="parameters" element="tns:UpdateIssueResponse" />
+  <wsdl:message name="UpdateIssueStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateIssueStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReassignIssueToCreatorSoapIn">
+    <wsdl:part name="parameters" element="tns:ReassignIssueToCreator" />
+  </wsdl:message>
+  <wsdl:message name="ReassignIssueToCreatorSoapOut">
+    <wsdl:part name="parameters" element="tns:ReassignIssueToCreatorResponse" />
   </wsdl:message>
   <wsdl:message name="LogInSoapIn">
     <wsdl:part name="parameters" element="tns:LogIn" />
@@ -629,9 +647,13 @@
       <wsdl:input message="tns:GetProjectIssuesByProjectIdSoapIn" />
       <wsdl:output message="tns:GetProjectIssuesByProjectIdSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateIssue">
-      <wsdl:input message="tns:UpdateIssueSoapIn" />
-      <wsdl:output message="tns:UpdateIssueSoapOut" />
+    <wsdl:operation name="UpdateIssueStatus">
+      <wsdl:input message="tns:UpdateIssueStatusSoapIn" />
+      <wsdl:output message="tns:UpdateIssueStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReassignIssueToCreator">
+      <wsdl:input message="tns:ReassignIssueToCreatorSoapIn" />
+      <wsdl:output message="tns:ReassignIssueToCreatorSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="LogIn">
       <wsdl:input message="tns:LogInSoapIn" />
@@ -806,8 +828,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateIssue">
-      <soap:operation soapAction="http://bugnetproject.com/UpdateIssue" style="document" />
+    <wsdl:operation name="UpdateIssueStatus">
+      <soap:operation soapAction="http://bugnetproject.com/UpdateIssueStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReassignIssueToCreator">
+      <soap:operation soapAction="http://bugnetproject.com/ReassignIssueToCreator" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -998,8 +1029,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateIssue">
-      <soap12:operation soapAction="http://bugnetproject.com/UpdateIssue" style="document" />
+    <wsdl:operation name="UpdateIssueStatus">
+      <soap12:operation soapAction="http://bugnetproject.com/UpdateIssueStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReassignIssueToCreator">
+      <soap12:operation soapAction="http://bugnetproject.com/ReassignIssueToCreator" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -81,28 +81,8 @@ namespace TurtleBugNET
                 {
                     result.AppendFormat("Fixed #{0}: {1}", ticket.Number, ticket.Summary);
                     
-                    try
-                    {
-                        //_logger.WriteToLog("project id: " + parameterArray[3]);
-                        //_logger.WriteToLog("issue id: " + ticket.Number);
-                        //_logger.WriteToLog("project id: " + parameterArray43]);
-                        client.UpdateIssue(int.Parse(_parameterArray[3]), ticket.Number, int.Parse(_parameterArray[4]), _parameterArray[1]);
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.WriteExceptionToLog(ex);
-                    }
-
                     result.AppendLine();
-                    //if (i < form.TicketsFixed.Count() - 1)
-                    //{
-                    //    revPropValues[0] += ticket.Number + ",";
-                    //}
-                    //else
-                    //{
-                    //    revPropValues[0] += ticket.Number;
-                    //}
-
+                    
                     selectedTickets.Add(ticket);
                     i++;
                 }

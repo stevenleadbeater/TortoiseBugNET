@@ -141,7 +141,7 @@ namespace TurtleBugNET.BugNET {
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            var propertyChanged = this.PropertyChanged;
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
@@ -419,7 +419,7 @@ namespace TurtleBugNET.BugNET {
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            var propertyChanged = this.PropertyChanged;
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
@@ -1253,7 +1253,7 @@ namespace TurtleBugNET.BugNET {
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            var propertyChanged = this.PropertyChanged;
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
@@ -1330,7 +1330,7 @@ namespace TurtleBugNET.BugNET {
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            var propertyChanged = this.PropertyChanged;
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
@@ -1413,8 +1413,12 @@ namespace TurtleBugNET.BugNET {
         TurtleBugNET.BugNET.GetProjectIssuesByProjectIdResponse GetProjectIssuesByProjectId(TurtleBugNET.BugNET.GetProjectIssuesByProjectIdRequest request);
         
         // CODEGEN: Generating message contract since element name userName from namespace http://bugnetproject.com/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://bugnetproject.com/UpdateIssue", ReplyAction="*")]
-        TurtleBugNET.BugNET.UpdateIssueResponse UpdateIssue(TurtleBugNET.BugNET.UpdateIssueRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://bugnetproject.com/UpdateIssueStatus", ReplyAction="*")]
+        TurtleBugNET.BugNET.UpdateIssueStatusResponse UpdateIssueStatus(TurtleBugNET.BugNET.UpdateIssueStatusRequest request);
+        
+        // CODEGEN: Generating message contract since element name userName from namespace http://bugnetproject.com/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://bugnetproject.com/ReassignIssueToCreator", ReplyAction="*")]
+        TurtleBugNET.BugNET.ReassignIssueToCreatorResponse ReassignIssueToCreator(TurtleBugNET.BugNET.ReassignIssueToCreatorRequest request);
         
         // CODEGEN: Generating message contract since element name userName from namespace http://bugnetproject.com/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://bugnetproject.com/LogIn", ReplyAction="*")]
@@ -2632,15 +2636,15 @@ namespace TurtleBugNET.BugNET {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class UpdateIssueRequest {
+    public partial class UpdateIssueStatusRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateIssue", Namespace="http://bugnetproject.com/", Order=0)]
-        public TurtleBugNET.BugNET.UpdateIssueRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateIssueStatus", Namespace="http://bugnetproject.com/", Order=0)]
+        public TurtleBugNET.BugNET.UpdateIssueStatusRequestBody Body;
         
-        public UpdateIssueRequest() {
+        public UpdateIssueStatusRequest() {
         }
         
-        public UpdateIssueRequest(TurtleBugNET.BugNET.UpdateIssueRequestBody Body) {
+        public UpdateIssueStatusRequest(TurtleBugNET.BugNET.UpdateIssueStatusRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -2649,7 +2653,7 @@ namespace TurtleBugNET.BugNET {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://bugnetproject.com/")]
-    public partial class UpdateIssueRequestBody {
+    public partial class UpdateIssueStatusRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public int projectId;
@@ -2663,10 +2667,10 @@ namespace TurtleBugNET.BugNET {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public string userName;
         
-        public UpdateIssueRequestBody() {
+        public UpdateIssueStatusRequestBody() {
         }
         
-        public UpdateIssueRequestBody(int projectId, int issueId, int statusId, string userName) {
+        public UpdateIssueStatusRequestBody(int projectId, int issueId, int statusId, string userName) {
             this.projectId = projectId;
             this.issueId = issueId;
             this.statusId = statusId;
@@ -2678,15 +2682,15 @@ namespace TurtleBugNET.BugNET {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class UpdateIssueResponse {
+    public partial class UpdateIssueStatusResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateIssueResponse", Namespace="http://bugnetproject.com/", Order=0)]
-        public TurtleBugNET.BugNET.UpdateIssueResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateIssueStatusResponse", Namespace="http://bugnetproject.com/", Order=0)]
+        public TurtleBugNET.BugNET.UpdateIssueStatusResponseBody Body;
         
-        public UpdateIssueResponse() {
+        public UpdateIssueStatusResponse() {
         }
         
-        public UpdateIssueResponse(TurtleBugNET.BugNET.UpdateIssueResponseBody Body) {
+        public UpdateIssueStatusResponse(TurtleBugNET.BugNET.UpdateIssueStatusResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -2695,9 +2699,78 @@ namespace TurtleBugNET.BugNET {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class UpdateIssueResponseBody {
+    public partial class UpdateIssueStatusResponseBody {
         
-        public UpdateIssueResponseBody() {
+        public UpdateIssueStatusResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ReassignIssueToCreatorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ReassignIssueToCreator", Namespace="http://bugnetproject.com/", Order=0)]
+        public TurtleBugNET.BugNET.ReassignIssueToCreatorRequestBody Body;
+        
+        public ReassignIssueToCreatorRequest() {
+        }
+        
+        public ReassignIssueToCreatorRequest(TurtleBugNET.BugNET.ReassignIssueToCreatorRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://bugnetproject.com/")]
+    public partial class ReassignIssueToCreatorRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int projectId;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int issueId;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string userName;
+        
+        public ReassignIssueToCreatorRequestBody() {
+        }
+        
+        public ReassignIssueToCreatorRequestBody(int projectId, int issueId, string userName) {
+            this.projectId = projectId;
+            this.issueId = issueId;
+            this.userName = userName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class ReassignIssueToCreatorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="ReassignIssueToCreatorResponse", Namespace="http://bugnetproject.com/", Order=0)]
+        public TurtleBugNET.BugNET.ReassignIssueToCreatorResponseBody Body;
+        
+        public ReassignIssueToCreatorResponse() {
+        }
+        
+        public ReassignIssueToCreatorResponse(TurtleBugNET.BugNET.ReassignIssueToCreatorResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class ReassignIssueToCreatorResponseBody {
+        
+        public ReassignIssueToCreatorResponseBody() {
         }
     }
     
@@ -2810,7 +2883,7 @@ namespace TurtleBugNET.BugNET {
         }
         
         public bool CreateNewIssueRevision(int revision, int issueId, string repository, string revisionAuthor, string revisionDate, string revisionMessage, string changeset, string branch) {
-            var inValue = new TurtleBugNET.BugNET.CreateNewIssueRevisionRequest();
+            TurtleBugNET.BugNET.CreateNewIssueRevisionRequest inValue = new TurtleBugNET.BugNET.CreateNewIssueRevisionRequest();
             inValue.Body = new TurtleBugNET.BugNET.CreateNewIssueRevisionRequestBody();
             inValue.Body.revision = revision;
             inValue.Body.issueId = issueId;
@@ -2820,7 +2893,7 @@ namespace TurtleBugNET.BugNET {
             inValue.Body.revisionMessage = revisionMessage;
             inValue.Body.changeset = changeset;
             inValue.Body.branch = branch;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).CreateNewIssueRevision(inValue);
+            TurtleBugNET.BugNET.CreateNewIssueRevisionResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).CreateNewIssueRevision(inValue);
             return retVal.Body.CreateNewIssueRevisionResult;
         }
         
@@ -2830,7 +2903,7 @@ namespace TurtleBugNET.BugNET {
         }
         
         public bool CreateNewIssueAttachment(int issueId, string creatorUserName, string fileName, string contentType, byte[] attachment, int size, string description) {
-            var inValue = new TurtleBugNET.BugNET.CreateNewIssueAttachmentRequest();
+            TurtleBugNET.BugNET.CreateNewIssueAttachmentRequest inValue = new TurtleBugNET.BugNET.CreateNewIssueAttachmentRequest();
             inValue.Body = new TurtleBugNET.BugNET.CreateNewIssueAttachmentRequestBody();
             inValue.Body.issueId = issueId;
             inValue.Body.creatorUserName = creatorUserName;
@@ -2839,7 +2912,7 @@ namespace TurtleBugNET.BugNET {
             inValue.Body.attachment = attachment;
             inValue.Body.size = size;
             inValue.Body.description = description;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).CreateNewIssueAttachment(inValue);
+            TurtleBugNET.BugNET.CreateNewIssueAttachmentResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).CreateNewIssueAttachment(inValue);
             return retVal.Body.CreateNewIssueAttachmentResult;
         }
         
@@ -2849,11 +2922,11 @@ namespace TurtleBugNET.BugNET {
         }
         
         public void RenameCategory(string categoryId, string name) {
-            var inValue = new TurtleBugNET.BugNET.RenameCategoryRequest();
+            TurtleBugNET.BugNET.RenameCategoryRequest inValue = new TurtleBugNET.BugNET.RenameCategoryRequest();
             inValue.Body = new TurtleBugNET.BugNET.RenameCategoryRequestBody();
             inValue.Body.categoryId = categoryId;
             inValue.Body.name = name;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).RenameCategory(inValue);
+            TurtleBugNET.BugNET.RenameCategoryResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).RenameCategory(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2862,12 +2935,12 @@ namespace TurtleBugNET.BugNET {
         }
         
         public void MoveCategory(string categoryId, string oldParentId, string newParentId) {
-            var inValue = new TurtleBugNET.BugNET.MoveCategoryRequest();
+            TurtleBugNET.BugNET.MoveCategoryRequest inValue = new TurtleBugNET.BugNET.MoveCategoryRequest();
             inValue.Body = new TurtleBugNET.BugNET.MoveCategoryRequestBody();
             inValue.Body.categoryId = categoryId;
             inValue.Body.oldParentId = oldParentId;
             inValue.Body.newParentId = newParentId;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).MoveCategory(inValue);
+            TurtleBugNET.BugNET.MoveCategoryResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).MoveCategory(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2876,10 +2949,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public string GetCategories(string projectId) {
-            var inValue = new TurtleBugNET.BugNET.GetCategoriesRequest();
+            TurtleBugNET.BugNET.GetCategoriesRequest inValue = new TurtleBugNET.BugNET.GetCategoriesRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetCategoriesRequestBody();
             inValue.Body.projectId = projectId;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetCategories(inValue);
+            TurtleBugNET.BugNET.GetCategoriesResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetCategories(inValue);
             return retVal.Body.GetCategoriesResult;
         }
         
@@ -2889,12 +2962,12 @@ namespace TurtleBugNET.BugNET {
         }
         
         public int AddCategory(string projectId, string name, string parentCategoryId) {
-            var inValue = new TurtleBugNET.BugNET.AddCategoryRequest();
+            TurtleBugNET.BugNET.AddCategoryRequest inValue = new TurtleBugNET.BugNET.AddCategoryRequest();
             inValue.Body = new TurtleBugNET.BugNET.AddCategoryRequestBody();
             inValue.Body.projectId = projectId;
             inValue.Body.name = name;
             inValue.Body.parentCategoryId = parentCategoryId;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).AddCategory(inValue);
+            TurtleBugNET.BugNET.AddCategoryResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).AddCategory(inValue);
             return retVal.Body.AddCategoryResult;
         }
         
@@ -2904,10 +2977,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public void DeleteCategory(string categoryId) {
-            var inValue = new TurtleBugNET.BugNET.DeleteCategoryRequest();
+            TurtleBugNET.BugNET.DeleteCategoryRequest inValue = new TurtleBugNET.BugNET.DeleteCategoryRequest();
             inValue.Body = new TurtleBugNET.BugNET.DeleteCategoryRequestBody();
             inValue.Body.categoryId = categoryId;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).DeleteCategory(inValue);
+            TurtleBugNET.BugNET.DeleteCategoryResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).DeleteCategory(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2916,10 +2989,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfString GetResolutions(int ProjectId) {
-            var inValue = new TurtleBugNET.BugNET.GetResolutionsRequest();
+            TurtleBugNET.BugNET.GetResolutionsRequest inValue = new TurtleBugNET.BugNET.GetResolutionsRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetResolutionsRequestBody();
             inValue.Body.ProjectId = ProjectId;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetResolutions(inValue);
+            TurtleBugNET.BugNET.GetResolutionsResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetResolutions(inValue);
             return retVal.Body.GetResolutionsResult;
         }
         
@@ -2929,10 +3002,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfString GetMilestones(int ProjectId) {
-            var inValue = new TurtleBugNET.BugNET.GetMilestonesRequest();
+            TurtleBugNET.BugNET.GetMilestonesRequest inValue = new TurtleBugNET.BugNET.GetMilestonesRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetMilestonesRequestBody();
             inValue.Body.ProjectId = ProjectId;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetMilestones(inValue);
+            TurtleBugNET.BugNET.GetMilestonesResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetMilestones(inValue);
             return retVal.Body.GetMilestonesResult;
         }
         
@@ -2942,10 +3015,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfString GetIssueTypes(int ProjectId) {
-            var inValue = new TurtleBugNET.BugNET.GetIssueTypesRequest();
+            TurtleBugNET.BugNET.GetIssueTypesRequest inValue = new TurtleBugNET.BugNET.GetIssueTypesRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetIssueTypesRequestBody();
             inValue.Body.ProjectId = ProjectId;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetIssueTypes(inValue);
+            TurtleBugNET.BugNET.GetIssueTypesResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetIssueTypes(inValue);
             return retVal.Body.GetIssueTypesResult;
         }
         
@@ -2955,10 +3028,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfString GetPriorities(int ProjectId) {
-            var inValue = new TurtleBugNET.BugNET.GetPrioritiesRequest();
+            TurtleBugNET.BugNET.GetPrioritiesRequest inValue = new TurtleBugNET.BugNET.GetPrioritiesRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetPrioritiesRequestBody();
             inValue.Body.ProjectId = ProjectId;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetPriorities(inValue);
+            TurtleBugNET.BugNET.GetPrioritiesResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetPriorities(inValue);
             return retVal.Body.GetPrioritiesResult;
         }
         
@@ -2968,10 +3041,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfString GetStatus(int ProjectId) {
-            var inValue = new TurtleBugNET.BugNET.GetStatusRequest();
+            TurtleBugNET.BugNET.GetStatusRequest inValue = new TurtleBugNET.BugNET.GetStatusRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetStatusRequestBody();
             inValue.Body.ProjectId = ProjectId;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetStatus(inValue);
+            TurtleBugNET.BugNET.GetStatusResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetStatus(inValue);
             return retVal.Body.GetStatusResult;
         }
         
@@ -2981,10 +3054,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public int GetProjectId(string ProjectCode) {
-            var inValue = new TurtleBugNET.BugNET.GetProjectIdRequest();
+            TurtleBugNET.BugNET.GetProjectIdRequest inValue = new TurtleBugNET.BugNET.GetProjectIdRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetProjectIdRequestBody();
             inValue.Body.ProjectCode = ProjectCode;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjectId(inValue);
+            TurtleBugNET.BugNET.GetProjectIdResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjectId(inValue);
             return retVal.Body.GetProjectIdResult;
         }
         
@@ -2994,11 +3067,11 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfAnyType GetProjectIssues(int ProjectId, string Filter) {
-            var inValue = new TurtleBugNET.BugNET.GetProjectIssuesRequest();
+            TurtleBugNET.BugNET.GetProjectIssuesRequest inValue = new TurtleBugNET.BugNET.GetProjectIssuesRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetProjectIssuesRequestBody();
             inValue.Body.ProjectId = ProjectId;
             inValue.Body.Filter = Filter;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjectIssues(inValue);
+            TurtleBugNET.BugNET.GetProjectIssuesResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjectIssues(inValue);
             return retVal.Body.GetProjectIssuesResult;
         }
         
@@ -3008,10 +3081,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public System.Collections.Generic.List<TurtleBugNET.BugNET.Status> GetStatusObjects(int projectId) {
-            var inValue = new TurtleBugNET.BugNET.GetStatusObjectsRequest();
+            TurtleBugNET.BugNET.GetStatusObjectsRequest inValue = new TurtleBugNET.BugNET.GetStatusObjectsRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetStatusObjectsRequestBody();
             inValue.Body.projectId = projectId;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetStatusObjects(inValue);
+            TurtleBugNET.BugNET.GetStatusObjectsResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetStatusObjects(inValue);
             return retVal.Body.GetStatusObjectsResult;
         }
         
@@ -3021,9 +3094,9 @@ namespace TurtleBugNET.BugNET {
         }
         
         public System.Collections.Generic.List<TurtleBugNET.BugNET.Project> GetProjects() {
-            var inValue = new TurtleBugNET.BugNET.GetProjectsRequest();
+            TurtleBugNET.BugNET.GetProjectsRequest inValue = new TurtleBugNET.BugNET.GetProjectsRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetProjectsRequestBody();
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjects(inValue);
+            TurtleBugNET.BugNET.GetProjectsResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjects(inValue);
             return retVal.Body.GetProjectsResult;
         }
         
@@ -3033,26 +3106,40 @@ namespace TurtleBugNET.BugNET {
         }
         
         public System.Collections.Generic.List<TurtleBugNET.BugNET.Issue> GetProjectIssuesByProjectId(int projectId) {
-            var inValue = new TurtleBugNET.BugNET.GetProjectIssuesByProjectIdRequest();
+            TurtleBugNET.BugNET.GetProjectIssuesByProjectIdRequest inValue = new TurtleBugNET.BugNET.GetProjectIssuesByProjectIdRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetProjectIssuesByProjectIdRequestBody();
             inValue.Body.projectId = projectId;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjectIssuesByProjectId(inValue);
+            TurtleBugNET.BugNET.GetProjectIssuesByProjectIdResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjectIssuesByProjectId(inValue);
             return retVal.Body.GetProjectIssuesByProjectIdResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        TurtleBugNET.BugNET.UpdateIssueResponse TurtleBugNET.BugNET.BugNetServicesSoap.UpdateIssue(TurtleBugNET.BugNET.UpdateIssueRequest request) {
-            return base.Channel.UpdateIssue(request);
+        TurtleBugNET.BugNET.UpdateIssueStatusResponse TurtleBugNET.BugNET.BugNetServicesSoap.UpdateIssueStatus(TurtleBugNET.BugNET.UpdateIssueStatusRequest request) {
+            return base.Channel.UpdateIssueStatus(request);
         }
         
-        public void UpdateIssue(int projectId, int issueId, int statusId, string userName) {
-            var inValue = new TurtleBugNET.BugNET.UpdateIssueRequest();
-            inValue.Body = new TurtleBugNET.BugNET.UpdateIssueRequestBody();
+        public void UpdateIssueStatus(int projectId, int issueId, int statusId, string userName) {
+            TurtleBugNET.BugNET.UpdateIssueStatusRequest inValue = new TurtleBugNET.BugNET.UpdateIssueStatusRequest();
+            inValue.Body = new TurtleBugNET.BugNET.UpdateIssueStatusRequestBody();
             inValue.Body.projectId = projectId;
             inValue.Body.issueId = issueId;
             inValue.Body.statusId = statusId;
             inValue.Body.userName = userName;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).UpdateIssue(inValue);
+            TurtleBugNET.BugNET.UpdateIssueStatusResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).UpdateIssueStatus(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        TurtleBugNET.BugNET.ReassignIssueToCreatorResponse TurtleBugNET.BugNET.BugNetServicesSoap.ReassignIssueToCreator(TurtleBugNET.BugNET.ReassignIssueToCreatorRequest request) {
+            return base.Channel.ReassignIssueToCreator(request);
+        }
+        
+        public void ReassignIssueToCreator(int projectId, int issueId, string userName) {
+            TurtleBugNET.BugNET.ReassignIssueToCreatorRequest inValue = new TurtleBugNET.BugNET.ReassignIssueToCreatorRequest();
+            inValue.Body = new TurtleBugNET.BugNET.ReassignIssueToCreatorRequestBody();
+            inValue.Body.projectId = projectId;
+            inValue.Body.issueId = issueId;
+            inValue.Body.userName = userName;
+            TurtleBugNET.BugNET.ReassignIssueToCreatorResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).ReassignIssueToCreator(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -3061,11 +3148,11 @@ namespace TurtleBugNET.BugNET {
         }
         
         public bool LogIn(string userName, string password) {
-            var inValue = new TurtleBugNET.BugNET.LogInRequest();
+            TurtleBugNET.BugNET.LogInRequest inValue = new TurtleBugNET.BugNET.LogInRequest();
             inValue.Body = new TurtleBugNET.BugNET.LogInRequestBody();
             inValue.Body.userName = userName;
             inValue.Body.password = password;
-            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).LogIn(inValue);
+            TurtleBugNET.BugNET.LogInResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).LogIn(inValue);
             return retVal.Body.LogInResult;
         }
         
