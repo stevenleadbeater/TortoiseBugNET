@@ -122,6 +122,9 @@
     <None Include="Service References\BugNET\TurtleBugNET.BugNET.ArrayOfString.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\BugNET\TurtleBugNET.BugNET.Issue.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BugNET\TurtleBugNET.BugNET.Project.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

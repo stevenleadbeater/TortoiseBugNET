@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using LogWriterUtility;
 using Microsoft.Win32;
 
 namespace TurtleBugNET
@@ -13,7 +14,9 @@ namespace TurtleBugNET
         ClassInterface(ClassInterfaceType.None)]
     public class TurtleBugNetPlugin : Interop.BugTraqProvider.IBugTraqProvider2, Interop.BugTraqProvider.IBugTraqProvider
     {
+        private LogWriter _logger = LogWriter.GetInstance("c:\\temp\\", "TurtleBugNET.log");
         private List<TicketItem> selectedTickets = new List<TicketItem>();
+        private string[] _parameterArray;
 
         public bool ValidateParameters(IntPtr hParentWnd, string parameters)
         {
@@ -28,9 +31,9 @@ namespace TurtleBugNET
         public string GetCommitMessage(IntPtr hParentWnd, string parameters, string commonRoot, string[] pathList,
                                        string originalMessage)
         {
-            string[] revPropNames = new string[0];
-            string[] revPropValues = new string[0];
-            string dummystring = "";
+            var revPropNames = new string[0];
+            var revPropValues = new string[0];
+            var dummystring = "";
             return GetCommitMessage2( hParentWnd, parameters, "", commonRoot, pathList, originalMessage, "", out dummystring, out revPropNames, out revPropValues );
         }
 
@@ -39,52 +42,73 @@ namespace TurtleBugNET
         {
             try
             {
-                System.ServiceModel.BasicHttpBinding binding = new System.ServiceModel.BasicHttpBinding();
+                
+                
+                var binding = new System.ServiceModel.BasicHttpBinding();
                 binding.Name = "BugNetServicesSoap";
+                binding.AllowCookies = true;
 
-                string endpointStr = "http://www.ledsys.co.uk/BugNet/WebServices/BugNetServices.asmx";
+                _parameterArray = parameters.Split(';');
+                var endpointStr = _parameterArray[0];
                 var endpoint = new System.ServiceModel.EndpointAddress(endpointStr);
                 
-                BugNET.BugNetServicesSoapClient client = new BugNET.BugNetServicesSoapClient(binding, endpoint);
+                var client = new BugNET.BugNetServicesSoapClient(binding, endpoint);
                 
 
                 client.Open();
-                if (!client.LogIn("steve", ""))
+                if (!client.LogIn(_parameterArray[1], _parameterArray[2]))
                 {
                     throw new Exception("login failed");
                 }
 
-                //List<BugNET.Issue> issues = client.GetProjectIssueList(3, "");
+                var issues = client.GetProjectIssuesByProjectId(int.Parse(_parameterArray[3]));
+                var tickets = issues.Select(issue => new TicketItem(issue.Id, issue.Title, issue.StatusName)).ToList();
 
-                //var tickets = issues.Select(issue => new TicketItem(issue.Id, issue.Title)).ToList();
+                revPropNames = new string[0];
+                revPropValues = new string[0];
 
-                revPropNames = new string[2];
-                revPropValues = new string[2];
-                revPropNames[0] = "bugtraq:issueIDs";
-                revPropNames[1] = "myownproperty";
-                revPropValues[0] = "13, 16, 17";
-                revPropValues[1] = "myownvalue";
+                bugIDOut = bugID;
 
-                bugIDOut = bugID + "added";
+                var form = new MyIssuesForm(tickets);
+                if (form.ShowDialog() != DialogResult.OK)
+                    return originalMessage;
 
-                //MyIssuesForm form = new MyIssuesForm( tickets );
-                //if ( form.ShowDialog( ) != DialogResult.OK )
-                //    return originalMessage;
+                var result = new StringBuilder(originalMessage);
+                if (originalMessage.Length != 0 && !originalMessage.EndsWith("\n"))
+                    result.AppendLine();
+                var i = 0;
+                foreach (var ticket in form.TicketsFixed)
+                {
+                    result.AppendFormat("Fixed #{0}: {1}", ticket.Number, ticket.Summary);
+                    
+                    try
+                    {
+                        //_logger.WriteToLog("project id: " + parameterArray[3]);
+                        //_logger.WriteToLog("issue id: " + ticket.Number);
+                        //_logger.WriteToLog("project id: " + parameterArray43]);
+                        client.UpdateIssue(int.Parse(_parameterArray[3]), ticket.Number, int.Parse(_parameterArray[4]), _parameterArray[1]);
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.WriteExceptionToLog(ex);
+                    }
 
-                //StringBuilder result = new StringBuilder( originalMessage );
-                //if ( originalMessage.Length != 0 && !originalMessage.EndsWith( "\n" ) )
-                //    result.AppendLine( );
+                    result.AppendLine();
+                    //if (i < form.TicketsFixed.Count() - 1)
+                    //{
+                    //    revPropValues[0] += ticket.Number + ",";
+                    //}
+                    //else
+                    //{
+                    //    revPropValues[0] += ticket.Number;
+                    //}
 
-                //foreach ( TicketItem ticket in form.TicketsFixed )
-                //{
-                //    result.AppendFormat( "Fixed #{0}: {1}", ticket.Number, ticket.Summary );
-                //    result.AppendLine( );
-                //    selectedTickets.Add( ticket );
-                //}
+                    selectedTickets.Add(ticket);
+                    i++;
+                }
 
 
-                //return result.ToString( );
-                return "";
+                return result.ToString();
             }
             catch ( Exception ex )
             {
@@ -95,14 +119,22 @@ namespace TurtleBugNET
 
         public string CheckCommit( IntPtr hParentWnd, string parameters, string commonURL, string commonRoot, string[] pathList, string commitMessage )
         {
-            return "the commit log message is not correct.";
+            _logger.WriteToLog("parameters: " + parameters);
+            _logger.WriteToLog("commonURL: " + commonURL);
+            _logger.WriteToLog("commonRoot: " + commonRoot);
+            foreach (var path in pathList)
+            {
+                _logger.WriteToLog("path: " + path);
+            }
+            
+            return null;
         }
 
         public string OnCommitFinished( IntPtr hParentWnd, string commonRoot, string[] pathList, string logMessage, int revision )
         {
             // we now could use the selectedTickets member to find out which tickets
             // were assigned to this commit.
-            CommitFinishedForm form = new CommitFinishedForm( selectedTickets );
+            var form = new CommitFinishedForm( selectedTickets, _parameterArray );
             if ( form.ShowDialog( ) != DialogResult.OK )
                 return "";
             // just for testing, we return an error string
@@ -116,11 +148,11 @@ namespace TurtleBugNET
 
         public string ShowOptionsDialog( IntPtr hParentWnd, string parameters )
         {
-            OptionsForm form = new OptionsForm( );
+            var form = new OptionsForm( );
             if ( form.ShowDialog( ) != DialogResult.OK )
                 return "";
 
-            string options = form.TextBugNetUrl.Text + ";";
+            var options = form.TextBugNetUrl.Text + ";";
             options += form.TextUserName.Text + ";";
             options += form.TextPassword.Text + ";";
             options += form.ComboProject.SelectedValue + ";";

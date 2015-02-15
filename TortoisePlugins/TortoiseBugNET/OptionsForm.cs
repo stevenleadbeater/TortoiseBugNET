@@ -14,7 +14,7 @@ namespace TurtleBugNET
 {
     public partial class OptionsForm : Form
     {
-        private LogWriter _logger = LogWriter.GetInstance(ConfigurationManager.AppSettings["LogDirectory"], ConfigurationManager.AppSettings["LogFileName"]);
+        private LogWriter _logger = LogWriter.GetInstance("c:\\temp\\", "TurtleBugNET.log");
         public OptionsForm( )
         {
             InitializeComponent( );
@@ -36,14 +36,14 @@ namespace TurtleBugNET
             {
                 AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);
 
-                System.ServiceModel.BasicHttpBinding binding = new System.ServiceModel.BasicHttpBinding();
+                var binding = new System.ServiceModel.BasicHttpBinding();
                 binding.Name = "BugNetServicesSoap";
                 binding.AllowCookies = true;
 
-                string endpointStr = textBugNetUrl.Text;
+                var endpointStr = textBugNetUrl.Text;
                 var endpoint = new System.ServiceModel.EndpointAddress(endpointStr);
 
-                BugNET.BugNetServicesSoapClient client = new BugNET.BugNetServicesSoapClient(binding, endpoint);
+                var client = new BugNET.BugNetServicesSoapClient(binding, endpoint);
                 
                 client.LogIn(textUserName.Text, textPassword.Text);
 
@@ -57,6 +57,7 @@ namespace TurtleBugNET
                     }).ToArray();
                 comboProject.DataSource = projects;
                 client.LogOut();
+                _logger.WriteToLog("steven leadbeater");
             }
             catch (Exception ex)
             {
@@ -76,16 +77,16 @@ namespace TurtleBugNET
             {
                 AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);
 
-                System.ServiceModel.BasicHttpBinding binding = new System.ServiceModel.BasicHttpBinding();
+                var binding = new System.ServiceModel.BasicHttpBinding();
                 binding.Name = "BugNetServicesSoap";
                 binding.AllowCookies = true;
 
                 //http://www.ledsys.co.uk/BugNet/WebServices/BugNetServices.asmx
 
-                string endpointStr = textBugNetUrl.Text;
+                var endpointStr = textBugNetUrl.Text;
                 var endpoint = new System.ServiceModel.EndpointAddress(endpointStr);
 
-                BugNET.BugNetServicesSoapClient client = new BugNET.BugNetServicesSoapClient(binding, endpoint);
+                var client = new BugNET.BugNetServicesSoapClient(binding, endpoint);
 
                 client.LogIn(textUserName.Text, textPassword.Text);
 

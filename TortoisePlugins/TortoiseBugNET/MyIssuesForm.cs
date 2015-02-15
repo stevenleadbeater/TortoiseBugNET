@@ -30,30 +30,33 @@ namespace TurtleBugNET
         private void MyIssuesForm_Load(object sender, EventArgs e)
         {
             listView1.Columns.Add("");
-            listView1.Columns.Add("#");
+            listView1.Columns.Add("Id");
             listView1.Columns.Add("Summary");
-
-            foreach(TicketItem ticketItem in _tickets)
+            listView1.Columns.Add("Status");
+            
+            foreach(var ticketItem in _tickets)
             {
-                ListViewItem lvi = new ListViewItem();
+                var lvi = new ListViewItem();
                 lvi.Text = "";
                 lvi.SubItems.Add(ticketItem.Number.ToString());
                 lvi.SubItems.Add(ticketItem.Summary);
+                lvi.SubItems.Add(ticketItem.Status);
                 lvi.Tag = ticketItem;
 
                 listView1.Items.Add(lvi);
             }
 
             listView1.Columns[0].Width = -1;
-            listView1.Columns[1].Width = -1;
-            listView1.Columns[2].Width = -1;
+            listView1.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.Columns[2].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.Columns[3].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem lvi in listView1.Items)
             {
-                TicketItem ticketItem = lvi.Tag as TicketItem;
+                var ticketItem = lvi.Tag as TicketItem;
                 if (ticketItem != null && lvi.Checked)
                     _ticketsAffected.Add(ticketItem);
             }

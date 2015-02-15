@@ -141,7 +141,7 @@ namespace TurtleBugNET.BugNET {
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            var propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
@@ -419,7 +419,7 @@ namespace TurtleBugNET.BugNET {
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            var propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
@@ -438,6 +438,903 @@ namespace TurtleBugNET.BugNET {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Private = 2,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Issue", Namespace="http://bugnetproject.com/")]
+    [System.SerializableAttribute()]
+    public partial class Issue : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<TurtleBugNET.BugNET.IssueCustomField> IssueCustomFieldsField;
+        
+        private bool IsClosedField;
+        
+        private bool SendNewAssigneeNotificationField;
+        
+        private bool NewAssigneeField;
+        
+        private int ProgressField;
+        
+        private int VotesField;
+        
+        private bool DisabledField;
+        
+        private decimal EstimationField;
+        
+        private double TimeLoggedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AssignedDisplayNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AssignedUserNameField;
+        
+        private int VisibilityField;
+        
+        private int CategoryIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatorDisplayNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatorUserNameField;
+        
+        private System.Guid CreatorUserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OwnerUserNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OwnerDisplayNameField;
+        
+        private System.Guid OwnerUserIdField;
+        
+        private System.Guid AssignedUserIdField;
+        
+        private System.DateTime DateCreatedField;
+        
+        private int IdField;
+        
+        private System.DateTime LastUpdateField;
+        
+        private System.DateTime DueDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastUpdateDisplayNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastUpdateUserNameField;
+        
+        private int MilestoneIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MilestoneNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MilestoneImageUrlField;
+        
+        private int AffectedMilestoneIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AffectedMilestoneNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AffectedMilestoneImageUrlField;
+        
+        private System.Nullable<System.DateTime> MilestoneDueDateField;
+        
+        private int IssueTypeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IssueTypeNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IssueTypeImageUrlField;
+        
+        private int ResolutionIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResolutionNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResolutionImageUrlField;
+        
+        private int PriorityIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PriorityNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PriorityImageUrlField;
+        
+        private int ProjectIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProjectNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProjectCodeField;
+        
+        private int StatusIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusImageUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.List<TurtleBugNET.BugNET.IssueCustomField> IssueCustomFields {
+            get {
+                return this.IssueCustomFieldsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IssueCustomFieldsField, value) != true)) {
+                    this.IssueCustomFieldsField = value;
+                    this.RaisePropertyChanged("IssueCustomFields");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public bool IsClosed {
+            get {
+                return this.IsClosedField;
+            }
+            set {
+                if ((this.IsClosedField.Equals(value) != true)) {
+                    this.IsClosedField = value;
+                    this.RaisePropertyChanged("IsClosed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public bool SendNewAssigneeNotification {
+            get {
+                return this.SendNewAssigneeNotificationField;
+            }
+            set {
+                if ((this.SendNewAssigneeNotificationField.Equals(value) != true)) {
+                    this.SendNewAssigneeNotificationField = value;
+                    this.RaisePropertyChanged("SendNewAssigneeNotification");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public bool NewAssignee {
+            get {
+                return this.NewAssigneeField;
+            }
+            set {
+                if ((this.NewAssigneeField.Equals(value) != true)) {
+                    this.NewAssigneeField = value;
+                    this.RaisePropertyChanged("NewAssignee");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public int Progress {
+            get {
+                return this.ProgressField;
+            }
+            set {
+                if ((this.ProgressField.Equals(value) != true)) {
+                    this.ProgressField = value;
+                    this.RaisePropertyChanged("Progress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public int Votes {
+            get {
+                return this.VotesField;
+            }
+            set {
+                if ((this.VotesField.Equals(value) != true)) {
+                    this.VotesField = value;
+                    this.RaisePropertyChanged("Votes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public bool Disabled {
+            get {
+                return this.DisabledField;
+            }
+            set {
+                if ((this.DisabledField.Equals(value) != true)) {
+                    this.DisabledField = value;
+                    this.RaisePropertyChanged("Disabled");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public decimal Estimation {
+            get {
+                return this.EstimationField;
+            }
+            set {
+                if ((this.EstimationField.Equals(value) != true)) {
+                    this.EstimationField = value;
+                    this.RaisePropertyChanged("Estimation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        public double TimeLogged {
+            get {
+                return this.TimeLoggedField;
+            }
+            set {
+                if ((this.TimeLoggedField.Equals(value) != true)) {
+                    this.TimeLoggedField = value;
+                    this.RaisePropertyChanged("TimeLogged");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public string AssignedDisplayName {
+            get {
+                return this.AssignedDisplayNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AssignedDisplayNameField, value) != true)) {
+                    this.AssignedDisplayNameField = value;
+                    this.RaisePropertyChanged("AssignedDisplayName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        public string AssignedUserName {
+            get {
+                return this.AssignedUserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AssignedUserNameField, value) != true)) {
+                    this.AssignedUserNameField = value;
+                    this.RaisePropertyChanged("AssignedUserName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
+        public int Visibility {
+            get {
+                return this.VisibilityField;
+            }
+            set {
+                if ((this.VisibilityField.Equals(value) != true)) {
+                    this.VisibilityField = value;
+                    this.RaisePropertyChanged("Visibility");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
+        public int CategoryId {
+            get {
+                return this.CategoryIdField;
+            }
+            set {
+                if ((this.CategoryIdField.Equals(value) != true)) {
+                    this.CategoryIdField = value;
+                    this.RaisePropertyChanged("CategoryId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
+        public string CategoryName {
+            get {
+                return this.CategoryNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryNameField, value) != true)) {
+                    this.CategoryNameField = value;
+                    this.RaisePropertyChanged("CategoryName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=14)]
+        public string CreatorDisplayName {
+            get {
+                return this.CreatorDisplayNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatorDisplayNameField, value) != true)) {
+                    this.CreatorDisplayNameField = value;
+                    this.RaisePropertyChanged("CreatorDisplayName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=15)]
+        public string CreatorUserName {
+            get {
+                return this.CreatorUserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatorUserNameField, value) != true)) {
+                    this.CreatorUserNameField = value;
+                    this.RaisePropertyChanged("CreatorUserName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=16)]
+        public System.Guid CreatorUserId {
+            get {
+                return this.CreatorUserIdField;
+            }
+            set {
+                if ((this.CreatorUserIdField.Equals(value) != true)) {
+                    this.CreatorUserIdField = value;
+                    this.RaisePropertyChanged("CreatorUserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=17)]
+        public string OwnerUserName {
+            get {
+                return this.OwnerUserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OwnerUserNameField, value) != true)) {
+                    this.OwnerUserNameField = value;
+                    this.RaisePropertyChanged("OwnerUserName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
+        public string OwnerDisplayName {
+            get {
+                return this.OwnerDisplayNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OwnerDisplayNameField, value) != true)) {
+                    this.OwnerDisplayNameField = value;
+                    this.RaisePropertyChanged("OwnerDisplayName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=19)]
+        public System.Guid OwnerUserId {
+            get {
+                return this.OwnerUserIdField;
+            }
+            set {
+                if ((this.OwnerUserIdField.Equals(value) != true)) {
+                    this.OwnerUserIdField = value;
+                    this.RaisePropertyChanged("OwnerUserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=20)]
+        public System.Guid AssignedUserId {
+            get {
+                return this.AssignedUserIdField;
+            }
+            set {
+                if ((this.AssignedUserIdField.Equals(value) != true)) {
+                    this.AssignedUserIdField = value;
+                    this.RaisePropertyChanged("AssignedUserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=21)]
+        public System.DateTime DateCreated {
+            get {
+                return this.DateCreatedField;
+            }
+            set {
+                if ((this.DateCreatedField.Equals(value) != true)) {
+                    this.DateCreatedField = value;
+                    this.RaisePropertyChanged("DateCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=22)]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=23)]
+        public System.DateTime LastUpdate {
+            get {
+                return this.LastUpdateField;
+            }
+            set {
+                if ((this.LastUpdateField.Equals(value) != true)) {
+                    this.LastUpdateField = value;
+                    this.RaisePropertyChanged("LastUpdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=24)]
+        public System.DateTime DueDate {
+            get {
+                return this.DueDateField;
+            }
+            set {
+                if ((this.DueDateField.Equals(value) != true)) {
+                    this.DueDateField = value;
+                    this.RaisePropertyChanged("DueDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=25)]
+        public string LastUpdateDisplayName {
+            get {
+                return this.LastUpdateDisplayNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastUpdateDisplayNameField, value) != true)) {
+                    this.LastUpdateDisplayNameField = value;
+                    this.RaisePropertyChanged("LastUpdateDisplayName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=26)]
+        public string LastUpdateUserName {
+            get {
+                return this.LastUpdateUserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastUpdateUserNameField, value) != true)) {
+                    this.LastUpdateUserNameField = value;
+                    this.RaisePropertyChanged("LastUpdateUserName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=27)]
+        public int MilestoneId {
+            get {
+                return this.MilestoneIdField;
+            }
+            set {
+                if ((this.MilestoneIdField.Equals(value) != true)) {
+                    this.MilestoneIdField = value;
+                    this.RaisePropertyChanged("MilestoneId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=28)]
+        public string MilestoneName {
+            get {
+                return this.MilestoneNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MilestoneNameField, value) != true)) {
+                    this.MilestoneNameField = value;
+                    this.RaisePropertyChanged("MilestoneName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=29)]
+        public string MilestoneImageUrl {
+            get {
+                return this.MilestoneImageUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MilestoneImageUrlField, value) != true)) {
+                    this.MilestoneImageUrlField = value;
+                    this.RaisePropertyChanged("MilestoneImageUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=30)]
+        public int AffectedMilestoneId {
+            get {
+                return this.AffectedMilestoneIdField;
+            }
+            set {
+                if ((this.AffectedMilestoneIdField.Equals(value) != true)) {
+                    this.AffectedMilestoneIdField = value;
+                    this.RaisePropertyChanged("AffectedMilestoneId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=31)]
+        public string AffectedMilestoneName {
+            get {
+                return this.AffectedMilestoneNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AffectedMilestoneNameField, value) != true)) {
+                    this.AffectedMilestoneNameField = value;
+                    this.RaisePropertyChanged("AffectedMilestoneName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=32)]
+        public string AffectedMilestoneImageUrl {
+            get {
+                return this.AffectedMilestoneImageUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AffectedMilestoneImageUrlField, value) != true)) {
+                    this.AffectedMilestoneImageUrlField = value;
+                    this.RaisePropertyChanged("AffectedMilestoneImageUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=33)]
+        public System.Nullable<System.DateTime> MilestoneDueDate {
+            get {
+                return this.MilestoneDueDateField;
+            }
+            set {
+                if ((this.MilestoneDueDateField.Equals(value) != true)) {
+                    this.MilestoneDueDateField = value;
+                    this.RaisePropertyChanged("MilestoneDueDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=34)]
+        public int IssueTypeId {
+            get {
+                return this.IssueTypeIdField;
+            }
+            set {
+                if ((this.IssueTypeIdField.Equals(value) != true)) {
+                    this.IssueTypeIdField = value;
+                    this.RaisePropertyChanged("IssueTypeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=35)]
+        public string IssueTypeName {
+            get {
+                return this.IssueTypeNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IssueTypeNameField, value) != true)) {
+                    this.IssueTypeNameField = value;
+                    this.RaisePropertyChanged("IssueTypeName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=36)]
+        public string IssueTypeImageUrl {
+            get {
+                return this.IssueTypeImageUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IssueTypeImageUrlField, value) != true)) {
+                    this.IssueTypeImageUrlField = value;
+                    this.RaisePropertyChanged("IssueTypeImageUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=37)]
+        public int ResolutionId {
+            get {
+                return this.ResolutionIdField;
+            }
+            set {
+                if ((this.ResolutionIdField.Equals(value) != true)) {
+                    this.ResolutionIdField = value;
+                    this.RaisePropertyChanged("ResolutionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=38)]
+        public string ResolutionName {
+            get {
+                return this.ResolutionNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResolutionNameField, value) != true)) {
+                    this.ResolutionNameField = value;
+                    this.RaisePropertyChanged("ResolutionName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=39)]
+        public string ResolutionImageUrl {
+            get {
+                return this.ResolutionImageUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResolutionImageUrlField, value) != true)) {
+                    this.ResolutionImageUrlField = value;
+                    this.RaisePropertyChanged("ResolutionImageUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=40)]
+        public int PriorityId {
+            get {
+                return this.PriorityIdField;
+            }
+            set {
+                if ((this.PriorityIdField.Equals(value) != true)) {
+                    this.PriorityIdField = value;
+                    this.RaisePropertyChanged("PriorityId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=41)]
+        public string PriorityName {
+            get {
+                return this.PriorityNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PriorityNameField, value) != true)) {
+                    this.PriorityNameField = value;
+                    this.RaisePropertyChanged("PriorityName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=42)]
+        public string PriorityImageUrl {
+            get {
+                return this.PriorityImageUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PriorityImageUrlField, value) != true)) {
+                    this.PriorityImageUrlField = value;
+                    this.RaisePropertyChanged("PriorityImageUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=43)]
+        public int ProjectId {
+            get {
+                return this.ProjectIdField;
+            }
+            set {
+                if ((this.ProjectIdField.Equals(value) != true)) {
+                    this.ProjectIdField = value;
+                    this.RaisePropertyChanged("ProjectId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=44)]
+        public string ProjectName {
+            get {
+                return this.ProjectNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProjectNameField, value) != true)) {
+                    this.ProjectNameField = value;
+                    this.RaisePropertyChanged("ProjectName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=45)]
+        public string ProjectCode {
+            get {
+                return this.ProjectCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProjectCodeField, value) != true)) {
+                    this.ProjectCodeField = value;
+                    this.RaisePropertyChanged("ProjectCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=46)]
+        public int StatusId {
+            get {
+                return this.StatusIdField;
+            }
+            set {
+                if ((this.StatusIdField.Equals(value) != true)) {
+                    this.StatusIdField = value;
+                    this.RaisePropertyChanged("StatusId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=47)]
+        public string StatusName {
+            get {
+                return this.StatusNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusNameField, value) != true)) {
+                    this.StatusNameField = value;
+                    this.RaisePropertyChanged("StatusName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=48)]
+        public string StatusImageUrl {
+            get {
+                return this.StatusImageUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusImageUrlField, value) != true)) {
+                    this.StatusImageUrlField = value;
+                    this.RaisePropertyChanged("StatusImageUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=49)]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=50)]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            var propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IssueCustomField", Namespace="http://bugnetproject.com/")]
+    [System.SerializableAttribute()]
+    public partial class IssueCustomField : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FieldNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FieldValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DatabaseFieldNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FieldName {
+            get {
+                return this.FieldNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FieldNameField, value) != true)) {
+                    this.FieldNameField = value;
+                    this.RaisePropertyChanged("FieldName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FieldValue {
+            get {
+                return this.FieldValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FieldValueField, value) != true)) {
+                    this.FieldValueField = value;
+                    this.RaisePropertyChanged("FieldValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string DatabaseFieldName {
+            get {
+                return this.DatabaseFieldNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DatabaseFieldNameField, value) != true)) {
+                    this.DatabaseFieldNameField = value;
+                    this.RaisePropertyChanged("DatabaseFieldName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            var propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -510,6 +1407,14 @@ namespace TurtleBugNET.BugNET {
         // CODEGEN: Generating message contract since element name GetProjectsResult from namespace http://bugnetproject.com/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://bugnetproject.com/GetProjects", ReplyAction="*")]
         TurtleBugNET.BugNET.GetProjectsResponse GetProjects(TurtleBugNET.BugNET.GetProjectsRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetProjectIssuesByProjectIdResult from namespace http://bugnetproject.com/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://bugnetproject.com/GetProjectIssuesByProjectId", ReplyAction="*")]
+        TurtleBugNET.BugNET.GetProjectIssuesByProjectIdResponse GetProjectIssuesByProjectId(TurtleBugNET.BugNET.GetProjectIssuesByProjectIdRequest request);
+        
+        // CODEGEN: Generating message contract since element name userName from namespace http://bugnetproject.com/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://bugnetproject.com/UpdateIssue", ReplyAction="*")]
+        TurtleBugNET.BugNET.UpdateIssueResponse UpdateIssue(TurtleBugNET.BugNET.UpdateIssueRequest request);
         
         // CODEGEN: Generating message contract since element name userName from namespace http://bugnetproject.com/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://bugnetproject.com/LogIn", ReplyAction="*")]
@@ -1659,6 +2564,147 @@ namespace TurtleBugNET.BugNET {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetProjectIssuesByProjectIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetProjectIssuesByProjectId", Namespace="http://bugnetproject.com/", Order=0)]
+        public TurtleBugNET.BugNET.GetProjectIssuesByProjectIdRequestBody Body;
+        
+        public GetProjectIssuesByProjectIdRequest() {
+        }
+        
+        public GetProjectIssuesByProjectIdRequest(TurtleBugNET.BugNET.GetProjectIssuesByProjectIdRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://bugnetproject.com/")]
+    public partial class GetProjectIssuesByProjectIdRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int projectId;
+        
+        public GetProjectIssuesByProjectIdRequestBody() {
+        }
+        
+        public GetProjectIssuesByProjectIdRequestBody(int projectId) {
+            this.projectId = projectId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetProjectIssuesByProjectIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetProjectIssuesByProjectIdResponse", Namespace="http://bugnetproject.com/", Order=0)]
+        public TurtleBugNET.BugNET.GetProjectIssuesByProjectIdResponseBody Body;
+        
+        public GetProjectIssuesByProjectIdResponse() {
+        }
+        
+        public GetProjectIssuesByProjectIdResponse(TurtleBugNET.BugNET.GetProjectIssuesByProjectIdResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://bugnetproject.com/")]
+    public partial class GetProjectIssuesByProjectIdResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public System.Collections.Generic.List<TurtleBugNET.BugNET.Issue> GetProjectIssuesByProjectIdResult;
+        
+        public GetProjectIssuesByProjectIdResponseBody() {
+        }
+        
+        public GetProjectIssuesByProjectIdResponseBody(System.Collections.Generic.List<TurtleBugNET.BugNET.Issue> GetProjectIssuesByProjectIdResult) {
+            this.GetProjectIssuesByProjectIdResult = GetProjectIssuesByProjectIdResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateIssueRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateIssue", Namespace="http://bugnetproject.com/", Order=0)]
+        public TurtleBugNET.BugNET.UpdateIssueRequestBody Body;
+        
+        public UpdateIssueRequest() {
+        }
+        
+        public UpdateIssueRequest(TurtleBugNET.BugNET.UpdateIssueRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://bugnetproject.com/")]
+    public partial class UpdateIssueRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int projectId;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int issueId;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int statusId;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string userName;
+        
+        public UpdateIssueRequestBody() {
+        }
+        
+        public UpdateIssueRequestBody(int projectId, int issueId, int statusId, string userName) {
+            this.projectId = projectId;
+            this.issueId = issueId;
+            this.statusId = statusId;
+            this.userName = userName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateIssueResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateIssueResponse", Namespace="http://bugnetproject.com/", Order=0)]
+        public TurtleBugNET.BugNET.UpdateIssueResponseBody Body;
+        
+        public UpdateIssueResponse() {
+        }
+        
+        public UpdateIssueResponse(TurtleBugNET.BugNET.UpdateIssueResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class UpdateIssueResponseBody {
+        
+        public UpdateIssueResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class LogInRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="LogIn", Namespace="http://bugnetproject.com/", Order=0)]
@@ -1764,7 +2810,7 @@ namespace TurtleBugNET.BugNET {
         }
         
         public bool CreateNewIssueRevision(int revision, int issueId, string repository, string revisionAuthor, string revisionDate, string revisionMessage, string changeset, string branch) {
-            TurtleBugNET.BugNET.CreateNewIssueRevisionRequest inValue = new TurtleBugNET.BugNET.CreateNewIssueRevisionRequest();
+            var inValue = new TurtleBugNET.BugNET.CreateNewIssueRevisionRequest();
             inValue.Body = new TurtleBugNET.BugNET.CreateNewIssueRevisionRequestBody();
             inValue.Body.revision = revision;
             inValue.Body.issueId = issueId;
@@ -1774,7 +2820,7 @@ namespace TurtleBugNET.BugNET {
             inValue.Body.revisionMessage = revisionMessage;
             inValue.Body.changeset = changeset;
             inValue.Body.branch = branch;
-            TurtleBugNET.BugNET.CreateNewIssueRevisionResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).CreateNewIssueRevision(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).CreateNewIssueRevision(inValue);
             return retVal.Body.CreateNewIssueRevisionResult;
         }
         
@@ -1784,7 +2830,7 @@ namespace TurtleBugNET.BugNET {
         }
         
         public bool CreateNewIssueAttachment(int issueId, string creatorUserName, string fileName, string contentType, byte[] attachment, int size, string description) {
-            TurtleBugNET.BugNET.CreateNewIssueAttachmentRequest inValue = new TurtleBugNET.BugNET.CreateNewIssueAttachmentRequest();
+            var inValue = new TurtleBugNET.BugNET.CreateNewIssueAttachmentRequest();
             inValue.Body = new TurtleBugNET.BugNET.CreateNewIssueAttachmentRequestBody();
             inValue.Body.issueId = issueId;
             inValue.Body.creatorUserName = creatorUserName;
@@ -1793,7 +2839,7 @@ namespace TurtleBugNET.BugNET {
             inValue.Body.attachment = attachment;
             inValue.Body.size = size;
             inValue.Body.description = description;
-            TurtleBugNET.BugNET.CreateNewIssueAttachmentResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).CreateNewIssueAttachment(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).CreateNewIssueAttachment(inValue);
             return retVal.Body.CreateNewIssueAttachmentResult;
         }
         
@@ -1803,11 +2849,11 @@ namespace TurtleBugNET.BugNET {
         }
         
         public void RenameCategory(string categoryId, string name) {
-            TurtleBugNET.BugNET.RenameCategoryRequest inValue = new TurtleBugNET.BugNET.RenameCategoryRequest();
+            var inValue = new TurtleBugNET.BugNET.RenameCategoryRequest();
             inValue.Body = new TurtleBugNET.BugNET.RenameCategoryRequestBody();
             inValue.Body.categoryId = categoryId;
             inValue.Body.name = name;
-            TurtleBugNET.BugNET.RenameCategoryResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).RenameCategory(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).RenameCategory(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1816,12 +2862,12 @@ namespace TurtleBugNET.BugNET {
         }
         
         public void MoveCategory(string categoryId, string oldParentId, string newParentId) {
-            TurtleBugNET.BugNET.MoveCategoryRequest inValue = new TurtleBugNET.BugNET.MoveCategoryRequest();
+            var inValue = new TurtleBugNET.BugNET.MoveCategoryRequest();
             inValue.Body = new TurtleBugNET.BugNET.MoveCategoryRequestBody();
             inValue.Body.categoryId = categoryId;
             inValue.Body.oldParentId = oldParentId;
             inValue.Body.newParentId = newParentId;
-            TurtleBugNET.BugNET.MoveCategoryResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).MoveCategory(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).MoveCategory(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1830,10 +2876,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public string GetCategories(string projectId) {
-            TurtleBugNET.BugNET.GetCategoriesRequest inValue = new TurtleBugNET.BugNET.GetCategoriesRequest();
+            var inValue = new TurtleBugNET.BugNET.GetCategoriesRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetCategoriesRequestBody();
             inValue.Body.projectId = projectId;
-            TurtleBugNET.BugNET.GetCategoriesResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetCategories(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetCategories(inValue);
             return retVal.Body.GetCategoriesResult;
         }
         
@@ -1843,12 +2889,12 @@ namespace TurtleBugNET.BugNET {
         }
         
         public int AddCategory(string projectId, string name, string parentCategoryId) {
-            TurtleBugNET.BugNET.AddCategoryRequest inValue = new TurtleBugNET.BugNET.AddCategoryRequest();
+            var inValue = new TurtleBugNET.BugNET.AddCategoryRequest();
             inValue.Body = new TurtleBugNET.BugNET.AddCategoryRequestBody();
             inValue.Body.projectId = projectId;
             inValue.Body.name = name;
             inValue.Body.parentCategoryId = parentCategoryId;
-            TurtleBugNET.BugNET.AddCategoryResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).AddCategory(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).AddCategory(inValue);
             return retVal.Body.AddCategoryResult;
         }
         
@@ -1858,10 +2904,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public void DeleteCategory(string categoryId) {
-            TurtleBugNET.BugNET.DeleteCategoryRequest inValue = new TurtleBugNET.BugNET.DeleteCategoryRequest();
+            var inValue = new TurtleBugNET.BugNET.DeleteCategoryRequest();
             inValue.Body = new TurtleBugNET.BugNET.DeleteCategoryRequestBody();
             inValue.Body.categoryId = categoryId;
-            TurtleBugNET.BugNET.DeleteCategoryResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).DeleteCategory(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).DeleteCategory(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1870,10 +2916,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfString GetResolutions(int ProjectId) {
-            TurtleBugNET.BugNET.GetResolutionsRequest inValue = new TurtleBugNET.BugNET.GetResolutionsRequest();
+            var inValue = new TurtleBugNET.BugNET.GetResolutionsRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetResolutionsRequestBody();
             inValue.Body.ProjectId = ProjectId;
-            TurtleBugNET.BugNET.GetResolutionsResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetResolutions(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetResolutions(inValue);
             return retVal.Body.GetResolutionsResult;
         }
         
@@ -1883,10 +2929,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfString GetMilestones(int ProjectId) {
-            TurtleBugNET.BugNET.GetMilestonesRequest inValue = new TurtleBugNET.BugNET.GetMilestonesRequest();
+            var inValue = new TurtleBugNET.BugNET.GetMilestonesRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetMilestonesRequestBody();
             inValue.Body.ProjectId = ProjectId;
-            TurtleBugNET.BugNET.GetMilestonesResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetMilestones(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetMilestones(inValue);
             return retVal.Body.GetMilestonesResult;
         }
         
@@ -1896,10 +2942,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfString GetIssueTypes(int ProjectId) {
-            TurtleBugNET.BugNET.GetIssueTypesRequest inValue = new TurtleBugNET.BugNET.GetIssueTypesRequest();
+            var inValue = new TurtleBugNET.BugNET.GetIssueTypesRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetIssueTypesRequestBody();
             inValue.Body.ProjectId = ProjectId;
-            TurtleBugNET.BugNET.GetIssueTypesResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetIssueTypes(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetIssueTypes(inValue);
             return retVal.Body.GetIssueTypesResult;
         }
         
@@ -1909,10 +2955,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfString GetPriorities(int ProjectId) {
-            TurtleBugNET.BugNET.GetPrioritiesRequest inValue = new TurtleBugNET.BugNET.GetPrioritiesRequest();
+            var inValue = new TurtleBugNET.BugNET.GetPrioritiesRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetPrioritiesRequestBody();
             inValue.Body.ProjectId = ProjectId;
-            TurtleBugNET.BugNET.GetPrioritiesResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetPriorities(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetPriorities(inValue);
             return retVal.Body.GetPrioritiesResult;
         }
         
@@ -1922,10 +2968,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfString GetStatus(int ProjectId) {
-            TurtleBugNET.BugNET.GetStatusRequest inValue = new TurtleBugNET.BugNET.GetStatusRequest();
+            var inValue = new TurtleBugNET.BugNET.GetStatusRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetStatusRequestBody();
             inValue.Body.ProjectId = ProjectId;
-            TurtleBugNET.BugNET.GetStatusResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetStatus(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetStatus(inValue);
             return retVal.Body.GetStatusResult;
         }
         
@@ -1935,10 +2981,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public int GetProjectId(string ProjectCode) {
-            TurtleBugNET.BugNET.GetProjectIdRequest inValue = new TurtleBugNET.BugNET.GetProjectIdRequest();
+            var inValue = new TurtleBugNET.BugNET.GetProjectIdRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetProjectIdRequestBody();
             inValue.Body.ProjectCode = ProjectCode;
-            TurtleBugNET.BugNET.GetProjectIdResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjectId(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjectId(inValue);
             return retVal.Body.GetProjectIdResult;
         }
         
@@ -1948,11 +2994,11 @@ namespace TurtleBugNET.BugNET {
         }
         
         public TurtleBugNET.BugNET.ArrayOfAnyType GetProjectIssues(int ProjectId, string Filter) {
-            TurtleBugNET.BugNET.GetProjectIssuesRequest inValue = new TurtleBugNET.BugNET.GetProjectIssuesRequest();
+            var inValue = new TurtleBugNET.BugNET.GetProjectIssuesRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetProjectIssuesRequestBody();
             inValue.Body.ProjectId = ProjectId;
             inValue.Body.Filter = Filter;
-            TurtleBugNET.BugNET.GetProjectIssuesResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjectIssues(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjectIssues(inValue);
             return retVal.Body.GetProjectIssuesResult;
         }
         
@@ -1962,10 +3008,10 @@ namespace TurtleBugNET.BugNET {
         }
         
         public System.Collections.Generic.List<TurtleBugNET.BugNET.Status> GetStatusObjects(int projectId) {
-            TurtleBugNET.BugNET.GetStatusObjectsRequest inValue = new TurtleBugNET.BugNET.GetStatusObjectsRequest();
+            var inValue = new TurtleBugNET.BugNET.GetStatusObjectsRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetStatusObjectsRequestBody();
             inValue.Body.projectId = projectId;
-            TurtleBugNET.BugNET.GetStatusObjectsResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetStatusObjects(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetStatusObjects(inValue);
             return retVal.Body.GetStatusObjectsResult;
         }
         
@@ -1975,10 +3021,38 @@ namespace TurtleBugNET.BugNET {
         }
         
         public System.Collections.Generic.List<TurtleBugNET.BugNET.Project> GetProjects() {
-            TurtleBugNET.BugNET.GetProjectsRequest inValue = new TurtleBugNET.BugNET.GetProjectsRequest();
+            var inValue = new TurtleBugNET.BugNET.GetProjectsRequest();
             inValue.Body = new TurtleBugNET.BugNET.GetProjectsRequestBody();
-            TurtleBugNET.BugNET.GetProjectsResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjects(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjects(inValue);
             return retVal.Body.GetProjectsResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        TurtleBugNET.BugNET.GetProjectIssuesByProjectIdResponse TurtleBugNET.BugNET.BugNetServicesSoap.GetProjectIssuesByProjectId(TurtleBugNET.BugNET.GetProjectIssuesByProjectIdRequest request) {
+            return base.Channel.GetProjectIssuesByProjectId(request);
+        }
+        
+        public System.Collections.Generic.List<TurtleBugNET.BugNET.Issue> GetProjectIssuesByProjectId(int projectId) {
+            var inValue = new TurtleBugNET.BugNET.GetProjectIssuesByProjectIdRequest();
+            inValue.Body = new TurtleBugNET.BugNET.GetProjectIssuesByProjectIdRequestBody();
+            inValue.Body.projectId = projectId;
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).GetProjectIssuesByProjectId(inValue);
+            return retVal.Body.GetProjectIssuesByProjectIdResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        TurtleBugNET.BugNET.UpdateIssueResponse TurtleBugNET.BugNET.BugNetServicesSoap.UpdateIssue(TurtleBugNET.BugNET.UpdateIssueRequest request) {
+            return base.Channel.UpdateIssue(request);
+        }
+        
+        public void UpdateIssue(int projectId, int issueId, int statusId, string userName) {
+            var inValue = new TurtleBugNET.BugNET.UpdateIssueRequest();
+            inValue.Body = new TurtleBugNET.BugNET.UpdateIssueRequestBody();
+            inValue.Body.projectId = projectId;
+            inValue.Body.issueId = issueId;
+            inValue.Body.statusId = statusId;
+            inValue.Body.userName = userName;
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).UpdateIssue(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1987,11 +3061,11 @@ namespace TurtleBugNET.BugNET {
         }
         
         public bool LogIn(string userName, string password) {
-            TurtleBugNET.BugNET.LogInRequest inValue = new TurtleBugNET.BugNET.LogInRequest();
+            var inValue = new TurtleBugNET.BugNET.LogInRequest();
             inValue.Body = new TurtleBugNET.BugNET.LogInRequestBody();
             inValue.Body.userName = userName;
             inValue.Body.password = password;
-            TurtleBugNET.BugNET.LogInResponse retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).LogIn(inValue);
+            var retVal = ((TurtleBugNET.BugNET.BugNetServicesSoap)(this)).LogIn(inValue);
             return retVal.Body.LogInResult;
         }
         
